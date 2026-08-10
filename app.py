@@ -20,3 +20,4 @@ if st.button("Predict Risk"):
     pred_encoded = model.predict(features_scaled)[0]
     pred_label = target_encoder.inverse_transform([pred_encoded])[0]
     st.success(f"Predicted Addiction Risk: **{pred_label}**")
+
