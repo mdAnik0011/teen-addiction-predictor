@@ -8,6 +8,11 @@ feature_columns = joblib.load("feature_columns.pkl")
 target_encoder = joblib.load("target_encoder.pkl")
 category_maps = joblib.load("category_maps.pkl")
 
+category_maps["Location"] = [
+    "Dhaka", "Chattogram", "Khulna", "Rajshahi",
+    "Sylhet", "Barishal", "Rangpur", "Mymensingh"
+]
+
 st.title("Teen Smartphone Addiction Risk Predictor")
 st.write("Enter the values below to predict addiction risk category.")
 
