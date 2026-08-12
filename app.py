@@ -18,11 +18,12 @@ st.write("Enter the values below to predict addiction risk category.")
 
 user_input = {}
 for col in feature_columns:
+    display_label = col.replace("_", " ")  # "Academic_Performance" -> "Academic Performance"
     if col in category_maps:
-        choice = st.selectbox(col, category_maps[col])
+        choice = st.selectbox(display_label, category_maps[col])
         user_input[col] = category_maps[col].index(choice)
     else:
-        user_input[col] = st.number_input(col, value=0.0)
+        user_input[col] = st.number_input(display_label, value=0.0)
 
 if st.button("Predict Risk"):
     features = np.array([[user_input[col] for col in feature_columns]])
